@@ -50,6 +50,8 @@ mkdir -p ~/.claude/skills
 ln -s ~/progetti/mappa-del-flusso/skill ~/.claude/skills/mappa-del-flusso
 ```
 
+Il link simbolico della skill fa sì che ogni modifica al repo valga subito per la skill installata.
+
 Poi si aggiungono in fondo a `~/.claude/CLAUDE.md` queste righe:
 
 ```markdown
@@ -62,7 +64,13 @@ Le righe nel CLAUDE.md globale servono perché l'attivazione automatica delle sk
 
 Il profilo si crea copiando `skill/template/profilo.md` in `~/.claude/mappa-del-flusso/profilo.md` e sostituendo le date: la data di creazione e la fine della taratura, quattordici giorni dopo. Se manca, la skill lo crea da sola.
 
-Il link simbolico fa sì che ogni modifica al repo valga subito per la skill installata.
+Chi usa la skill sia su Windows sia su WSL e vuole un solo profilo può tenerlo su Windows e definire su WSL, in `~/.bashrc`, la variabile che ne indica il percorso:
+
+```sh
+export MAPPA_FLUSSO_PROFILO=/mnt/c/Users/<utente>/.claude/mappa-del-flusso/profilo.md
+```
+
+Non si usa un link simbolico perché alcuni strumenti salvano i file sostituendoli, e il link andrebbe perso.
 
 ## Struttura del repo
 

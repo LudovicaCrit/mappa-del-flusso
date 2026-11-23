@@ -9,7 +9,7 @@ Chi usa questa skill sta imparando l'architettura dei sistemi seguendo il lavoro
 
 ## File coinvolti
 
-- Profilo globale: ~/.claude/mappa-del-flusso/profilo.md. Contiene i livelli per area, la domanda aperta e lo storico. Se manca, crealo da template/profilo.md di questa skill.
+- Profilo globale: se è definita la variabile d'ambiente `MAPPA_FLUSSO_PROFILO`, usa il percorso che contiene; verificalo con echo all'inizio. Altrimenti usa `mappa-del-flusso/profilo.md` dentro la cartella `.claude` della home dell'utente: `~/.claude` su Linux e WSL, `%USERPROFILE%\.claude` su Windows. Contiene i livelli per area, la domanda aperta e lo storico. Se manca, crealo da template/profilo.md di questa skill e scrivi all'inizio del resoconto, in grassetto, che hai creato un profilo nuovo e in quale percorso: se chi impara ne ha già uno altrove, deve accorgersene subito.
 - Diario del progetto: docs/mappa-flusso.md nella radice del repo su cui stai lavorando. Se manca, crealo da template/mappa-flusso.md di questa skill.
 
 ## All'inizio del compito: valutare la risposta
