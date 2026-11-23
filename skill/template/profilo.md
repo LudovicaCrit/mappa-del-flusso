@@ -2,6 +2,7 @@
 
 Creato: AAAA-MM-GG
 Taratura fino a: AAAA-MM-GG
+Stato: attiva
 
 ## Livelli per area
 

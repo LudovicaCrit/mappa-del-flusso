@@ -17,11 +17,11 @@ Chi usa questa skill sta imparando l'architettura dei sistemi seguendo il lavoro
 Se il prompt contiene una riga che inizia con "Risposta:":
 
 1. Recupera la domanda dalla sezione "Domanda aperta" del profilo.
-2. Valuta la risposta come corretta, parziale o sbagliata, basandoti sul codice reale. Rileggi i file se serve: non valutare a memoria.
+2. Valuta la risposta come corretta, parziale o sbagliata, basandoti sul codice reale. Se la risposta corrisponde chiaramente a un'altra domanda, per esempio a una domanda precedente già chiusa, l'esito è fuori bersaglio: non cambia i contatori e la domanda resta aperta. Rileggi i file se serve: non valutare a memoria.
 3. Aggiorna contatori e livelli secondo le regole di avanzamento, registra l'esito nello storico e svuota la domanda aperta.
-4. Nel resoconto finale, prima della mappa, aggiungi una sezione "Valutazione": l'esito e, in 2-4 righe, cosa era giusto e cosa mancava, con file e riga.
+4. Nel resoconto finale, prima della mappa, aggiungi una sezione "Valutazione": riporta per intero la domanda a cui si riferisce, poi l'esito e, in 2-4 righe, cosa era giusto e cosa mancava, con file e riga.
 
-Se il prompt non contiene una risposta ma c'è una domanda aperta: registrala nello storico come saltata e svuota la domanda aperta. Una domanda saltata non ha conseguenze.
+Se il prompt non contiene una risposta, la domanda aperta resta aperta. Viene registrata come saltata solo in due casi: quando chi impara scrive Mappa: salta, oppure quando, alla fine di un compito, fai una domanda nuova che prende il suo posto.
 
 ## Alla fine del compito: la sezione "Mappa del flusso"
 
@@ -42,6 +42,18 @@ Uno solo: il concetto architetturale più importante incontrato nel compito, per
 Una sola domanda, sul codice appena toccato, al livello che il profilo indica per l'area più pertinente al compito. Indica area e livello tra parentesi quadre, per esempio [accesso ai dati, livello 2]. Non dare la risposta e non suggerirla. Scrivila nella sezione "Domanda aperta" del profilo, con data e progetto.
 
 Infine aggiungi al diario del progetto una voce con data, una riga sul compito, il punto 2 e il punto 3. Aggiorna l'indice dei concetti del diario se il concetto è nuovo.
+
+## Comandi nel prompt
+
+Chi impara può regolare la skill con una riga del prompt che inizia con "Mappa:". I comandi valgono solo per il compito in corso, salvo pausa e ripresa.
+
+- **Mappa: senza domanda** — produci la mappa del flusso ma non fare la domanda.
+- **Mappa: niente** — non produrre la sezione Mappa del flusso in questo compito, né aggiornare il diario. Serve per le urgenze.
+- **Mappa: pausa** — come "niente", ma per tutti i compiti successivi, anche in sessioni nuove: nel profilo imposta "Stato: in pausa". Finché il profilo è in pausa, scrivi solo una riga a fine resoconto per ricordare che la mappa è in pausa.
+- **Mappa: riprendi** — nel profilo imposta "Stato: attiva" e torna al funzionamento normale da questo compito.
+- **Mappa: salta** — registra la domanda aperta come saltata e svuotala, senza conseguenze sui contatori.
+
+Con tutti i comandi tranne Mappa: salta, la domanda aperta resta aperta: non registrarla come saltata. Se il prompt contiene una riga "Risposta:", valutala comunque, perché è stata data apposta.
 
 ## Aree
 
@@ -67,7 +79,7 @@ Ogni livello chiede una capacità diversa, non solo una difficoltà maggiore.
 
 - Corretta: aumenta di 1 le corrette consecutive dell'area e azzera le sbagliate consecutive.
 - Sbagliata: aumenta di 1 le sbagliate consecutive dell'area e azzera le corrette consecutive.
-- Parziale o saltata: nessun cambiamento ai contatori.
+- Parziale, saltata o fuori bersaglio: nessun cambiamento ai contatori.
 - Salita: con 3 corrette consecutive, oppure 2 durante la taratura, il livello dell'area sale di 1, fino a un massimo di 5, e i contatori si azzerano.
 - Discesa: con 2 sbagliate consecutive il livello dell'area scende di 1, fino a un minimo di 1, e i contatori si azzerano.
 - La taratura è attiva fino alla data indicata nel profilo.

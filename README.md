@@ -21,6 +21,8 @@ Per rispondere, si scrive nel prompt successivo una riga che inizia con `Rispost
 
 Ogni voce finisce anche nel diario del progetto, `docs/mappa-flusso.md`, con un indice dei concetti incontrati, così le spiegazioni non si ripetono e si possono rileggere.
 
+Con una riga del prompt che inizia con `Mappa:` si può regolare la skill: per esempio togliere la domanda o la mappa da un singolo compito, oppure metterla in pausa e riprenderla. La domanda aperta, in questi casi, resta aperta. L'elenco dei comandi è nella sezione "Comandi nel prompt" di [SKILL.md](skill/SKILL.md).
+
 ## Calibrazione
 
 I livelli sono cinque, e ognuno chiede una capacità diversa, non solo una difficoltà maggiore:
@@ -78,6 +80,7 @@ Non si usa un link simbolico perché alcuni strumenti salvano i file sostituendo
 mappa-del-flusso/
 ├── LICENSE
 ├── README.md
+├── ROADMAP.md                  sviluppi previsti, per tappe
 └── skill/
     ├── SKILL.md                istruzioni della skill per Claude Code
     └── template/
@@ -88,6 +91,10 @@ mappa-del-flusso/
 ## Progetti collegati
 
 È pensata come complementare a una skill sulla scrittura di codice leggibile e mantenibile: questa aiuta a capire il codice che c'è, quella a scriverlo in modo che si lasci capire.
+
+## Sviluppi previsti
+
+Le tappe successive, dal grafo del codice come indice al ripasso dilazionato fino al sussidiario per progetto, sono descritte in [ROADMAP.md](ROADMAP.md), insieme al principio che le guida: il codice è l'unica fonte di prova.
 
 ## Licenza e autrice
 
