@@ -17,11 +17,11 @@ Alla fine di ogni compito in cui ha letto o modificato codice, l'agente aggiunge
 3. **Concetto emerso**: uno solo, il più importante del compito, spiegato in poche righe a partire dal codice appena visto.
 4. **Domanda**: una sola, sul codice toccato, al livello indicato dal profilo per l'area più pertinente.
 
-Per rispondere, si scrive nel prompt successivo una riga che inizia con `Risposta:`. All'inizio di quel compito l'agente valuta la risposta sul codice reale (corretta, parziale o sbagliata), aggiorna il profilo e riporta l'esito prima della nuova mappa. Una domanda a cui non si risponde resta aperta finché non si risponde o non la si cambia con salta, domanda nuova o ripeti.
+Per rispondere, si scrive nel prompt successivo una riga che inizia con `Risposta:`. All'inizio di quel compito l'agente valuta la risposta sul codice reale (corretta, parziale o sbagliata), aggiorna il profilo e riporta l'esito prima della nuova mappa. Ogni progetto ha al massimo una domanda aperta, così si può rispondere con il codice di quel progetto davanti; il progetto è il nome della cartella radice del repo. Una domanda a cui non si risponde resta aperta finché non si risponde o non la si cambia con salta, domanda nuova o ripeti, sempre dalla cartella del suo progetto.
 
 Ogni voce finisce anche nel diario del progetto, `docs/mappa-flusso.md`, con un indice dei concetti incontrati, così le spiegazioni non si ripetono e si possono rileggere.
 
-Con una riga del prompt che inizia con `Mappa:` si può regolare la skill: per esempio togliere la domanda o la mappa da un singolo compito, oppure metterla in pausa e riprenderla. La domanda aperta, in questi casi, resta aperta. L'elenco dei comandi è nella sezione "Comandi nel prompt" di [SKILL.md](skill/SKILL.md).
+Con una riga del prompt che inizia con `Mappa:` si può regolare la skill: per esempio togliere la domanda o la mappa da un singolo compito, oppure metterla in pausa e riprenderla. Con `Mappa: indizio` si chiede dove guardare per la domanda aperta, senza la risposta: una risposta corretta dopo un indizio conta comunque come corretta. La domanda aperta del progetto, in questi casi, resta aperta. L'elenco dei comandi è nella sezione "Comandi nel prompt" di [SKILL.md](skill/SKILL.md).
 
 ## Calibrazione
 
@@ -42,7 +42,7 @@ Regole di avanzamento:
 - le risposte parziali e le domande saltate non cambiano i contatori;
 - nelle prime due settimane, il periodo di taratura, bastano 2 corrette consecutive per salire, così il profilo raggiunge in fretta il livello reale.
 
-Il profilo è globale, in `~/.claude/mappa-del-flusso/profilo.md`, perché la competenza è della persona e non del repo: ciò che si è imparato su un progetto vale anche sul successivo. Il diario invece è per progetto, perché descrive quel sistema e i suoi flussi.
+Il profilo è globale, in `~/.claude/mappa-del-flusso/profilo.md`, perché la competenza è della persona e non del repo: ciò che si è imparato su un progetto vale anche sul successivo. Il diario invece è per progetto, perché descrive quel sistema e i suoi flussi. Nel profilo, livelli e storico sono globali, mentre le domande aperte sono una per progetto.
 
 ## Installazione
 
@@ -74,7 +74,7 @@ export MAPPA_FLUSSO_PROFILO=${MAPPA_FLUSSO_PROFILO:-/mnt/c/Users/<utente>/.claud
 
 Non si usa un link simbolico perché alcuni strumenti salvano i file sostituendoli, e il link andrebbe perso.
 
-Per studiare anche fuori da un compito ci sono due comandi da terminale: `domanda` ripropone la domanda aperta, o ne genera una se non c'è, e `rispondi` invia una risposta, per esempio `rispondi "in backend/main.py, nella funzione l'avvio"`. Le virgolette servono sempre: senza, un apostrofo nella risposta interrompe il comando. Si attivano aggiungendo a `~/.bashrc` la riga:
+Per studiare anche fuori da un compito ci sono tre comandi da terminale: `domanda` ripropone la domanda aperta del progetto corrente, o ne genera una se non c'è, `indizio` dice dove guardare per rispondere, senza dare la risposta, e `rispondi` invia una risposta, per esempio `rispondi "in backend/main.py, nella funzione l'avvio"`. Le virgolette servono sempre: senza, un apostrofo nella risposta interrompe il comando. Si attivano aggiungendo a `~/.bashrc` la riga:
 
 ```sh
 source ~/progetti/mappa-del-flusso/shell/mappa.bash
@@ -90,7 +90,7 @@ mappa-del-flusso/
 ├── README.md
 ├── ROADMAP.md                  sviluppi previsti, per tappe
 ├── shell/
-│   └── mappa.bash              comandi da terminale domanda e rispondi
+│   └── mappa.bash              comandi da terminale domanda, indizio e rispondi
 └── skill/
     ├── SKILL.md                istruzioni della skill per Claude Code
     └── template/
