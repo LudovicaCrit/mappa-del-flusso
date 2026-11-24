@@ -74,11 +74,19 @@ export MAPPA_FLUSSO_PROFILO=${MAPPA_FLUSSO_PROFILO:-/mnt/c/Users/<utente>/.claud
 
 Non si usa un link simbolico perché alcuni strumenti salvano i file sostituendoli, e il link andrebbe perso.
 
-Per studiare anche fuori da un compito ci sono tre comandi da terminale: `domanda` ripropone la domanda aperta del progetto corrente, o ne genera una se non c'è, `indizio` dice dove guardare per rispondere, senza dare la risposta, e `rispondi` invia una risposta, per esempio `rispondi "in backend/main.py, nella funzione l'avvio"`. Le virgolette servono sempre: senza, un apostrofo nella risposta interrompe il comando. Si attivano aggiungendo a `~/.bashrc` la riga:
+Per studiare anche fuori da un compito ci sono tre comandi da terminale: `domanda` ripropone la domanda aperta del progetto corrente, o ne genera una se non c'è, `indizio` dice dove guardare per rispondere, senza dare la risposta, e `rispondi` invia una risposta, per esempio `rispondi "in backend/main.py, nella funzione l'avvio"`. Le virgolette servono sempre: senza, un apostrofo nella risposta interrompe il comando. In bash si attivano aggiungendo a `~/.bashrc` la riga:
 
 ```sh
 source ~/progetti/mappa-del-flusso/shell/mappa.bash
 ```
+
+In PowerShell gli stessi comandi stanno in `shell/mappa.ps1` e si attivano aggiungendo al profilo di PowerShell, il file indicato da `$PROFILE`, la riga:
+
+```powershell
+. "$env:USERPROFILE\progetti\mappa-del-flusso\shell\mappa.ps1"
+```
+
+Se il profilo non esiste ancora, si crea con `New-Item -ItemType File -Force $PROFILE`. Se PowerShell rifiuta di caricare gli script per la politica di esecuzione, basta `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned`, che permette gli script locali e chiede la firma solo a quelli scaricati da internet. In PowerShell la risposta va tra virgolette doppie, per lo stesso motivo dell'apostrofo. Il profilo è `$env:MAPPA_FLUSSO_PROFILO`, se è definita, altrimenti `%USERPROFILE%\.claude\mappa-del-flusso\profilo.md`.
 
 Vanno lanciati dalla cartella del progetto su cui si studia. Il repo del progetto resta in sola lettura: Claude Code può leggerlo e consultare git, ma può modificare solo il profilo.
 
@@ -90,7 +98,8 @@ mappa-del-flusso/
 ├── README.md
 ├── ROADMAP.md                  sviluppi previsti, per tappe
 ├── shell/
-│   └── mappa.bash              comandi da terminale domanda, indizio e rispondi
+│   ├── mappa.bash              comandi da terminale domanda, indizio e rispondi, per bash
+│   └── mappa.ps1               gli stessi comandi per PowerShell
 └── skill/
     ├── SKILL.md                istruzioni della skill per Claude Code
     └── template/
