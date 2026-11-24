@@ -69,7 +69,7 @@ Il profilo si crea copiando `skill/template/profilo.md` in `~/.claude/mappa-del-
 Chi usa la skill sia su Windows sia su WSL e vuole un solo profilo può tenerlo su Windows e definire su WSL, in `~/.bashrc`, la variabile che ne indica il percorso:
 
 ```sh
-export MAPPA_FLUSSO_PROFILO=/mnt/c/Users/<utente>/.claude/mappa-del-flusso/profilo.md
+export MAPPA_FLUSSO_PROFILO=${MAPPA_FLUSSO_PROFILO:-/mnt/c/Users/<utente>/.claude/mappa-del-flusso/profilo.md}
 ```
 
 Non si usa un link simbolico perché alcuni strumenti salvano i file sostituendoli, e il link andrebbe perso.
