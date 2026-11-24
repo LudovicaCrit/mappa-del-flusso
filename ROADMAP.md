@@ -1,6 +1,6 @@
 # Roadmap
 
-Stato attuale, versione 0.1 di novembre 2026: a fine compito la mappa del flusso, con ordine di esplorazione, ordine di esecuzione, un concetto e una domanda calibrata per area e livello; comandi nel prompt per sospendere domanda o mappa; profilo globale; diario per progetto. La taratura dura fino al 7 dicembre 2026.
+Stato attuale, versione 0.1 di novembre 2026: a fine compito la mappa del flusso, con ordine di esplorazione, ordine di esecuzione, un concetto e una domanda calibrata per area e livello; comandi nel prompt per sospendere domanda o mappa; domande a richiesta, consultazione e ripetizione delle domande passate; profilo globale; diario per progetto. La taratura dura fino al 7 dicembre 2026.
 
 ## Principio: il codice è la fonte
 
@@ -35,7 +35,7 @@ Sempre nel rispetto del principio: il grafo indica, il codice prova.
 Oggi la domanda segue solo l'ultimo compito: un concetto sbagliato, se il lavoro si sposta altrove, non torna più. Il ripasso lo fa tornare.
 
 - Nel profilo, una sezione Da ripassare con i concetti delle risposte sbagliate o parziali, con data e progetto.
-- Domande di ripasso non legate all'ultimo compito, ma sempre ancorate al codice di un progetto reale.
+- Ripasso automatico a intervalli, con domande non legate all'ultimo compito ma sempre ancorate al codice di un progetto reale.
 - Proposta iniziale di intervalli: dopo 1, 3, 7 e 14 giorni da un errore; un concetto esce dal ripasso dopo due risposte corrette di fila.
 - Un comando per chiedere un gruppo di domande in una volta, per esempio "Mappa: gruppo 5", pescate dal diario e dal ripasso, con risposte numerate in un unico prompt e valutazione domanda per domanda.
 - Da decidere in questa tappa: se il ripasso arriva solo a richiesta o anche da solo, per esempio una domanda di ripasso ogni tanti compiti.
@@ -59,3 +59,6 @@ Se durante la taratura la sezione non compare in modo affidabile, si valuta un h
 - Un README in inglese, per chi non legge l'italiano.
 
 ## Osservazioni dalla taratura
+
+- 2026-11-23: una risposta data alla domanda precedente è stata contata come sbagliata: introdotto l'esito fuori bersaglio, e la domanda viene riportata nella valutazione.
+- 2026-11-23: rischio noto: una sessione di lavoro e un comando di studio che scrivono il profilo nello stesso momento possono perdere una modifica; mitigato rileggendo il profilo prima di ogni scrittura e modificando solo le righe interessate.

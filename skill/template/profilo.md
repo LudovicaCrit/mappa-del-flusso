@@ -22,5 +22,10 @@ nessuna
 
 ## Storico
 
-| Data | Progetto | Area | Livello | Domanda | Esito |
-|---|---|---|---|---|---|
+Ogni domanda chiusa diventa una scheda:
+
+### D-NNN · AAAA-MM-GG · progetto · area · livello N
+- Domanda: testo completo
+- Risposta data: testo, oppure nessuna
+- Esito: corretta, parziale, sbagliata, fuori bersaglio o saltata
+- Correzione: 2-4 righe con file e riga, oppure nessuna

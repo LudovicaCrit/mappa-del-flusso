@@ -11,6 +11,7 @@ Chi usa questa skill sta imparando l'architettura dei sistemi seguendo il lavoro
 
 - Profilo globale: se è definita la variabile d'ambiente `MAPPA_FLUSSO_PROFILO`, usa il percorso che contiene; verificalo con echo all'inizio. Altrimenti usa `mappa-del-flusso/profilo.md` dentro la cartella `.claude` della home dell'utente: `~/.claude` su Linux e WSL, `%USERPROFILE%\.claude` su Windows. Contiene i livelli per area, la domanda aperta e lo storico. Se manca, crealo da template/profilo.md di questa skill e scrivi all'inizio del resoconto, in grassetto, che hai creato un profilo nuovo e in quale percorso: se chi impara ne ha già uno altrove, deve accorgersene subito.
 - Diario del progetto: docs/mappa-flusso.md nella radice del repo su cui stai lavorando. Se manca, crealo da template/mappa-flusso.md di questa skill.
+- Scrittura del profilo: rileggilo sempre subito prima di modificarlo e cambia solo le righe interessate, senza riscriverlo per intero. Un'altra sessione può averlo modificato nel frattempo.
 
 ## All'inizio del compito: valutare la risposta
 
@@ -18,10 +19,12 @@ Se il prompt contiene una riga che inizia con "Risposta:":
 
 1. Recupera la domanda dalla sezione "Domanda aperta" del profilo.
 2. Valuta la risposta come corretta, parziale o sbagliata, basandoti sul codice reale. Se la risposta corrisponde chiaramente a un'altra domanda, per esempio a una domanda precedente già chiusa, l'esito è fuori bersaglio: non cambia i contatori e la domanda resta aperta. Rileggi i file se serve: non valutare a memoria.
-3. Aggiorna contatori e livelli secondo le regole di avanzamento, registra l'esito nello storico e svuota la domanda aperta.
+3. Aggiorna contatori e livelli secondo le regole di avanzamento, sposta la domanda nello storico come scheda, con identificativo, data, progetto, area, livello, testo completo, risposta data, esito e correzione in 2-4 righe, e svuota la domanda aperta. La stessa scheda si usa anche quando una domanda viene registrata come saltata, con risposta data: nessuna e correzione: nessuna.
 4. Nel resoconto finale, prima della mappa, aggiungi una sezione "Valutazione": riporta per intero la domanda a cui si riferisce, poi l'esito e, in 2-4 righe, cosa era giusto e cosa mancava, con file e riga.
 
 Se il prompt non contiene una risposta, la domanda aperta resta aperta. Viene registrata come saltata solo in due casi: quando chi impara scrive Mappa: salta, oppure quando, alla fine di un compito, fai una domanda nuova che prende il suo posto.
+
+Se il prompt contiene solo la riga Risposta:, senza un compito, limitati alla valutazione: niente sezione Mappa del flusso e nessuna modifica al diario.
 
 ## Alla fine del compito: la sezione "Mappa del flusso"
 
@@ -39,7 +42,7 @@ Se l'ordine in cui hai esplorato differisce da quello di esecuzione in un punto 
 Uno solo: il concetto architetturale più importante incontrato nel compito, per esempio dependency injection, middleware, migrazione, sessione, CORS. Da 3 a 5 righe, ancorate al codice appena visto. Se il concetto è già nel diario, rimanda alla voce esistente e mostrane un aspetto nuovo, oppure scegline un altro.
 
 ### 4. Domanda
-Una sola domanda, sul codice appena toccato, al livello che il profilo indica per l'area più pertinente al compito. Indica area e livello tra parentesi quadre, per esempio [accesso ai dati, livello 2]. Non dare la risposta e non suggerirla. Scrivila nella sezione "Domanda aperta" del profilo, con data e progetto.
+Una sola domanda, sul codice appena toccato, al livello che il profilo indica per l'area più pertinente al compito. Indica identificativo, area e livello tra parentesi quadre, per esempio [D-004, accesso ai dati, livello 1]. Non dare la risposta e non suggerirla. Scrivila nella sezione Domanda aperta del profilo con un identificativo progressivo D-NNN, data, progetto, area, livello e testo completo.
 
 Infine aggiungi al diario del progetto una voce con data, una riga sul compito, il punto 2 e il punto 3. Aggiorna l'indice dei concetti del diario se il concetto è nuovo.
 
@@ -52,8 +55,14 @@ Chi impara può regolare la skill con una riga del prompt che inizia con "Mappa:
 - **Mappa: pausa** — come "niente", ma per tutti i compiti successivi, anche in sessioni nuove: nel profilo imposta "Stato: in pausa". Finché il profilo è in pausa, scrivi solo una riga a fine resoconto per ricordare che la mappa è in pausa.
 - **Mappa: riprendi** — nel profilo imposta "Stato: attiva" e torna al funzionamento normale da questo compito.
 - **Mappa: salta** — registra la domanda aperta come saltata e svuotala, senza conseguenze sui contatori.
+- **Mappa: domanda** — se c'è una domanda aperta, riproponila tale e quale con il suo identificativo. Se non c'è, generane una sul codice toccato di recente nel repo corrente, basandoti sugli ultimi commit e sul diario, al livello del profilo per l'area che scegli, e registrala come domanda aperta.
+- **Mappa: domanda nuova** — genera una domanda nuova come sopra anche se ce n'è una aperta; quella aperta va nello storico come saltata.
+- **Mappa: rivedi** — elenca le domande dello storico: identificativo, data, progetto, area, esito. Accetta un filtro per area, per esempio "Mappa: rivedi accesso ai dati". Con un identificativo, per esempio "Mappa: rivedi D-003", mostra la scheda completa.
+- **Mappa: ripeti D-NNN** — riapri come domanda aperta la domanda indicata; quella aperta, se c'è, va nello storico come saltata. Prima rileggi il codice a cui si riferisce: se è cambiato, riformula la domanda sul codice attuale e dillo in una riga.
 
-Con tutti i comandi tranne Mappa: salta, la domanda aperta resta aperta: non registrarla come saltata. Se il prompt contiene una riga "Risposta:", valutala comunque, perché è stata data apposta.
+I comandi domanda, domanda nuova, rivedi e ripeti sono comandi di studio: puoi leggere il codice e il diario, ma non modificare nessun file del repo, diario compreso; scrivi solo nel profilo. Con questi comandi non produrre la sezione Mappa del flusso.
+
+Con tutti i comandi tranne salta, domanda nuova e ripeti, la domanda aperta resta aperta: non registrarla come saltata. Se il prompt contiene una riga "Risposta:", valutala comunque, perché è stata data apposta.
 
 ## Aree
 
@@ -87,7 +96,7 @@ Ogni livello chiede una capacità diversa, non solo una difficoltà maggiore.
 
 ## Stile
 
-- Italiano. Usa sempre il termine tecnico corretto, spiegandolo la prima volta che compare nel diario del progetto.
+- Sempre in italiano, in ogni output della skill, compresi i comandi di studio e la modalità non interattiva, anche nelle frasi di servizio. Usa sempre il termine tecnico corretto, spiegandolo la prima volta che compare nel diario del progetto.
 - Prima il concreto, poi l'astratto.
 - L'intera sezione, valutazione compresa, non supera circa 40 righe.
 - Non ripetere spiegazioni già presenti nel diario: rimanda alla voce.

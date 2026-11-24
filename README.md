@@ -74,6 +74,14 @@ export MAPPA_FLUSSO_PROFILO=/mnt/c/Users/<utente>/.claude/mappa-del-flusso/profi
 
 Non si usa un link simbolico perché alcuni strumenti salvano i file sostituendoli, e il link andrebbe perso.
 
+Per studiare anche fuori da un compito ci sono due comandi da terminale: `domanda` ripropone la domanda aperta, o ne genera una se non c'è, e `rispondi` invia una risposta, per esempio `rispondi "in backend/main.py, nella funzione l'avvio"`. Le virgolette servono sempre: senza, un apostrofo nella risposta interrompe il comando. Si attivano aggiungendo a `~/.bashrc` la riga:
+
+```sh
+source ~/progetti/mappa-del-flusso/shell/mappa.bash
+```
+
+Vanno lanciati dalla cartella del progetto su cui si studia. Il repo del progetto resta in sola lettura: Claude Code può leggerlo e consultare git, ma può modificare solo il profilo.
+
 ## Struttura del repo
 
 ```
@@ -81,6 +89,8 @@ mappa-del-flusso/
 ├── LICENSE
 ├── README.md
 ├── ROADMAP.md                  sviluppi previsti, per tappe
+├── shell/
+│   └── mappa.bash              comandi da terminale domanda e rispondi
 └── skill/
     ├── SKILL.md                istruzioni della skill per Claude Code
     └── template/
