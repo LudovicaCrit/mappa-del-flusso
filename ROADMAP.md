@@ -62,3 +62,5 @@ Se durante la taratura la sezione non compare in modo affidabile, si valuta un h
 
 - 2026-11-23: una risposta data alla domanda precedente è stata contata come sbagliata: introdotto l'esito fuori bersaglio, e la domanda viene riportata nella valutazione.
 - 2026-11-23: rischio noto: una sessione di lavoro e un comando di studio che scrivono il profilo nello stesso momento possono perdere una modifica; mitigato rileggendo il profilo prima di ogni scrittura e modificando solo le righe interessate.
+- 2026-11-24: una domanda è stata sostituita a fine compito prima che chi impara la leggesse: da ora, finché c'è una domanda aperta, a fine compito non se ne genera una nuova.
+- 2026-11-24: una sessione di lavoro avviata prima di un aggiornamento della skill ha scritto lo storico nel formato vecchio: dopo ogni aggiornamento le sessioni vanno riaperte da zero.

@@ -17,7 +17,7 @@ Alla fine di ogni compito in cui ha letto o modificato codice, l'agente aggiunge
 3. **Concetto emerso**: uno solo, il più importante del compito, spiegato in poche righe a partire dal codice appena visto.
 4. **Domanda**: una sola, sul codice toccato, al livello indicato dal profilo per l'area più pertinente.
 
-Per rispondere, si scrive nel prompt successivo una riga che inizia con `Risposta:`. All'inizio di quel compito l'agente valuta la risposta sul codice reale (corretta, parziale o sbagliata), aggiorna il profilo e riporta l'esito prima della nuova mappa. Una domanda a cui non si risponde viene registrata come saltata, senza conseguenze.
+Per rispondere, si scrive nel prompt successivo una riga che inizia con `Risposta:`. All'inizio di quel compito l'agente valuta la risposta sul codice reale (corretta, parziale o sbagliata), aggiorna il profilo e riporta l'esito prima della nuova mappa. Una domanda a cui non si risponde resta aperta finché non si risponde o non la si cambia con salta, domanda nuova o ripeti.
 
 Ogni voce finisce anche nel diario del progetto, `docs/mappa-flusso.md`, con un indice dei concetti incontrati, così le spiegazioni non si ripetono e si possono rileggere.
 
@@ -52,7 +52,7 @@ mkdir -p ~/.claude/skills
 ln -s ~/progetti/mappa-del-flusso/skill ~/.claude/skills/mappa-del-flusso
 ```
 
-Il link simbolico della skill fa sì che ogni modifica al repo valga subito per la skill installata.
+Il link simbolico della skill fa sì che ogni modifica al repo valga subito per la skill installata. Le sessioni di Claude Code già aperte, però, conservano nel contesto le istruzioni caricate prima: dopo ogni modifica alla skill vanno chiuse e ne va aperta una nuova, perché riprenderle con resume non basta.
 
 Poi si aggiungono in fondo a `~/.claude/CLAUDE.md` queste righe:
 
